@@ -255,7 +255,9 @@ public class PhreakFromNode {
 
 
             // @TODO (mdp) is this really necessary? won't the entire FH and RightTuple chaines just et GC'd?
-            unlinkCreatedHandles(leftTuple);
+            if (matches != null) {
+                unlinkCreatedHandles(leftTuple);
+            }
 
             leftTuple.clearStaged();
             leftTuple = next;
